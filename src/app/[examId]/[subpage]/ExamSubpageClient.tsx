@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import SeoContentRenderer from '../../../components/SeoContentRenderer';
 import { 
   ArrowRight, 
   FileText, 
@@ -22,30 +23,26 @@ import {
   Flame,
   FileCheck,
   MapPin,
-  AlertTriangle
+  AlertTriangle,
+  BarChart
 } from 'lucide-react';
 
 const subpagesList = [
-  { id: 'notification', name: 'Notification 2026', icon: FileText },
-  { id: 'vacancy', name: 'Vacancy Details', icon: Briefcase },
-  { id: 'dates', name: 'Important Dates', icon: Calendar },
-  { id: 'eligibility', name: 'Eligibility Criteria', icon: UserCheck },
-  { id: 'medical', name: 'Medical Standards', icon: Eye },
-  { id: 'pattern', name: 'Exam Pattern', icon: Settings },
-  { id: 'syllabus', name: 'Official Syllabus', icon: BookOpen },
-  { id: 'pyqs', name: 'Previous Year Papers', icon: Clock },
-  { id: 'mocks', name: 'Mock Test Series', icon: Flame },
-  { id: 'strategy', name: 'Preparation Strategy', icon: Shield },
-  { id: 'job-profile', name: 'Job Profiles List', icon: Award },
-  { id: 'salary', name: 'Salary & Pay Scale', icon: DollarSign },
-  { id: 'preference', name: 'Post Preference Guide', icon: FileCheck },
-  { id: 'centres', name: 'Exam Centres List', icon: MapPin },
-  { id: 'admit-card', name: 'Admit Card Download', icon: Download },
-  { id: 'day-rules', name: 'Exam Day Rules', icon: AlertTriangle },
-  { id: 'normalization', name: 'Normalization Mark', icon: Zap },
-  { id: 'answer-key', name: 'Answer Key PDF', icon: Globe },
-  { id: 'cutoffs', name: 'Cut-off Trends', icon: TrendingUp },
-  { id: 'result', name: 'Result & Merit List', icon: Award }
+  { id: 'notification', name: 'Notification', icon: FileText },
+  { id: 'admit-card', name: 'Admit Card', icon: Download },
+  { id: 'vacancy', name: 'Vacancy', icon: Briefcase },
+  { id: 'syllabus', name: 'Syllabus', icon: BookOpen },
+  { id: 'important-dates', name: 'Important Dates', icon: Calendar },
+  { id: 'cut-off', name: 'Cut Off', icon: TrendingUp },
+  { id: 'exam-pattern', name: 'Exam Pattern', icon: Settings },
+  { id: 'eligibility', name: 'Eligibility', icon: UserCheck },
+  { id: 'selection-process', name: 'Selection Process', icon: Award },
+  { id: 'salary', name: 'Salary', icon: DollarSign },
+  { id: 'mock-tests', name: 'RRB NTPC Mock Tests', icon: Flame },
+  { id: 'english-sectional', name: 'English Language sectional tests', icon: FileCheck },
+  { id: 'quant-tests', name: 'Quantitative Aptitude tests', icon: BarChart },
+  { id: 'reasoning-tests', name: 'Reasoning Ability tests', icon: Zap },
+  { id: 'study-plan', name: 'Study Plan', icon: Shield }
 ];
 
 interface ExamSubpageClientProps {
@@ -58,16 +55,7 @@ interface ExamSubpageClientProps {
     salaryRange: string;
     faqList: { q: string; a: string }[];
   };
-  activeContent: {
-    title: string;
-    description: string;
-    badge?: string;
-    tableHeaders?: string[];
-    tableData?: string[][];
-    bulletsTitle?: string;
-    bullets?: string[];
-    infoBox?: string;
-  };
+  seoPayload: any;
 }
 
 export default function ExamSubpageClient({
@@ -75,7 +63,7 @@ export default function ExamSubpageClient({
   subpage,
   examDisplayName,
   activeExamStats,
-  activeContent
+  seoPayload
 }: ExamSubpageClientProps) {
   return (
     <>
@@ -89,7 +77,7 @@ export default function ExamSubpageClient({
             <span>/</span>
             <Link href={`/${examId}`} style={{ color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none' }}>{examDisplayName} Hub</Link>
             <span>/</span>
-            <span style={{ color: '#fff', fontWeight: '600' }}>{activeContent.title.split(' ')[0]} Section</span>
+            <span style={{ color: '#fff', fontWeight: '600' }}>{seoPayload.primaryKeyword.split(' ')[1] || 'Details'}</span>
           </div>
 
           {/* Badge */}
@@ -204,9 +192,9 @@ export default function ExamSubpageClient({
                 </div>
               </div>
 
-              {/* PrepGrind Ad Directly Below the 20 Subpage Menu inside left sticky column */}
+              {/* Railgrind Ad Directly Below the 15 Subpage Menu inside left sticky column */}
               <a 
-                href="https://prepgrind.com" 
+                href="https://railgrind.in" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 style={{ 
@@ -250,7 +238,7 @@ export default function ExamSubpageClient({
                     marginBottom: '0.75rem',
                     letterSpacing: '0.5px'
                   }}>
-                    PREPGRIND SPECIAL
+                    RAILGRIND SPECIAL
                   </span>
 
                   <h5 style={{ 
@@ -281,7 +269,7 @@ export default function ExamSubpageClient({
                     fontWeight: '700', 
                     color: '#facc15' 
                   }}>
-                    <span>Access PrepGrind</span>
+                    <span>Access Railgrind</span>
                     <ArrowRight size={12} />
                   </div>
                 </div>
@@ -292,100 +280,7 @@ export default function ExamSubpageClient({
             {/* RIGHT COLUMN: High-Density Premium Detailed Worksheets (Span 8) */}
             <div style={{ gridColumn: 'span 8', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
               
-              {/* Detailed Content Card */}
-              <div style={{ 
-                backgroundColor: 'var(--surface)', 
-                border: '1px solid var(--border-color)', 
-                borderRadius: 'var(--radius-xl)', 
-                padding: '2.5rem', 
-                boxShadow: 'var(--shadow-sm)' 
-              }}>
-                
-                {/* Header details */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem' }}>
-                  <h2 style={{ fontSize: '1.6rem', fontWeight: '850', fontFamily: 'Outfit', color: 'var(--text-main)', margin: '0' }}>
-                    {activeContent.title}
-                  </h2>
-                  {activeContent.badge && (
-                    <span style={{ 
-                      fontSize: '0.7rem', 
-                      padding: '0.25rem 0.6rem', 
-                      backgroundColor: 'rgba(212, 83, 63, 0.1)', 
-                      color: 'var(--primary)', 
-                      borderRadius: '4px', 
-                      fontWeight: '800' 
-                    }}>
-                      {activeContent.badge}
-                    </span>
-                  )}
-                </div>
-
-                <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.75', marginBottom: '2rem' }}>
-                  {activeContent.description}
-                </p>
-
-                {/* Table details (if exists) */}
-                {activeContent.tableHeaders && activeContent.tableData && (
-                  <div style={{ overflowX: 'auto', marginBottom: '2rem' }}>
-                    <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-lg)' }}>
-                      <thead>
-                        <tr style={{ backgroundColor: 'var(--bg-color)', borderBottom: '2px solid var(--border-color)' }}>
-                          {activeContent.tableHeaders.map((head, hIdx) => (
-                            <th key={hIdx} style={{ padding: '0.9rem 1rem', textAlign: 'left', fontWeight: '800', fontSize: '0.85rem', color: 'var(--text-main)' }}>
-                              {head}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {activeContent.tableData.map((row, rIdx) => (
-                          <tr key={rIdx} style={{ borderBottom: '1px solid var(--border-color)', backgroundColor: rIdx % 2 === 0 ? 'var(--surface)' : 'rgba(255,255,255,0.02)' }}>
-                            {row.map((cell, cIdx) => (
-                              <td key={cIdx} style={{ padding: '0.9rem 1rem', fontSize: '0.875rem', fontWeight: cIdx === 0 ? '800' : '600', color: cIdx === 0 ? 'var(--text-main)' : 'var(--text-muted)' }}>
-                                {cell}
-                              </td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-
-                {/* Bullets details (if exists) */}
-                {activeContent.bulletsTitle && activeContent.bullets && (
-                  <div style={{ marginBottom: '2rem' }}>
-                    <h4 style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      {activeContent.bulletsTitle}
-                    </h4>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                      {activeContent.bullets.map((bullet, idx) => (
-                        <div key={idx} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', fontSize: '0.9rem', lineHeight: '1.5' }}>
-                          <span style={{ color: 'var(--primary)', fontWeight: '950', marginTop: '0.1rem' }}>✓</span>
-                          <span style={{ color: 'var(--text-main)', fontWeight: '600' }}>{bullet}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* InfoBox (if exists) */}
-                {activeContent.infoBox && (
-                  <div style={{ 
-                    padding: '1.25rem', 
-                    backgroundColor: 'var(--primary-light)', 
-                    borderRadius: 'var(--radius-md)', 
-                    borderLeft: '4px solid var(--primary)',
-                    fontSize: '0.875rem',
-                    lineHeight: '1.5',
-                    color: 'var(--text-main)',
-                    fontWeight: '700'
-                  }}>
-                    {activeContent.infoBox}
-                  </div>
-                )}
-
-              </div>
+              <SeoContentRenderer payload={seoPayload} />
 
               {/* Direct Mock Test Simulator Card Integration */}
               <div style={{ 
@@ -396,13 +291,13 @@ export default function ExamSubpageClient({
                 border: '1px solid rgba(212, 83, 63, 0.15)'
               }}>
                 <h4 style={{ fontSize: '1.25rem', color: 'var(--primary)', marginBottom: '0.5rem', fontFamily: 'Outfit', fontWeight: '850' }}>
-                  Practice Mocks for {examDisplayName} on PrepGrind!
+                  Practice Mocks for {examDisplayName} on Railgrind!
                 </h4>
                 <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', maxWidth: '550px', margin: '0 auto 1.5rem auto', lineHeight: '1.5', fontWeight: '600' }}>
                   Boost your exam speeds. Attempt official solved shift previous papers and simulated full length mocks under real exam clocks.
                 </p>
                 <a 
-                  href="https://prepgrind.com" 
+                  href="https://railgrind.in" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn-primary"
@@ -415,59 +310,6 @@ export default function ExamSubpageClient({
             </div>
 
           </div>
-
-          {/* Zonal FAQs list at the end */}
-          <section style={{ borderTop: '1px solid var(--border-color)', marginTop: '6rem', paddingTop: '5.5rem' }}>
-            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <span style={{ 
-                fontSize: '0.8rem', 
-                fontWeight: '800', 
-                color: 'var(--primary)', 
-                textTransform: 'uppercase', 
-                letterSpacing: '2px',
-                backgroundColor: 'var(--primary-light)',
-                padding: '0.4rem 1rem',
-                borderRadius: 'var(--radius-sm)',
-                display: 'inline-block',
-                marginBottom: '1rem'
-              }}>
-                {examDisplayName} FAQ Center
-              </span>
-              <h2 style={{ fontSize: '2.25rem', fontFamily: 'Outfit', fontWeight: '850', color: 'var(--text-main)', marginBottom: '1rem' }}>
-                Frequently Asked Questions
-              </h2>
-              <p style={{ color: 'var(--text-muted)', maxWidth: '700px', margin: '0 auto', fontSize: '1.05rem', lineHeight: '1.7' }}>
-                Everything you need to know about the official {examDisplayName} recruitment parameters.
-              </p>
-            </div>
-
-            <div style={{ maxWidth: '850px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {activeExamStats.faqList.map((faq, index) => (
-                <details 
-                  key={index} 
-                  className="faq-details"
-                >
-                  <summary className="faq-summary">
-                    <span>{faq.q}</span>
-                  </summary>
-                  <div className="faq-content">
-                    <p style={{ 
-                      marginTop: '1rem', 
-                      color: 'var(--text-muted)', 
-                      fontSize: '0.95rem', 
-                      lineHeight: '1.65', 
-                      borderTop: '1px solid var(--border-color)',
-                      paddingTop: '0.75rem',
-                      cursor: 'default'
-                    }}>
-                      {faq.a}
-                    </p>
-                  </div>
-                </details>
-              ))}
-            </div>
-          </section>
-
         </div>
       </section>
     </>

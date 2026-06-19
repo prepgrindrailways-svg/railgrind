@@ -9,7 +9,7 @@ import Marquee from '@/components/Marquee';
 // Total 145 tests per exam across 5 exams = 725 total tests in the database!
 const generateTests = () => {
   const exams = ["RRB NTPC", "RRB Group D", "RPF Constable", "RRB JE", "RRB ALP"];
-  const list = [];
+  const list: any[] = [];
   let id = 1;
 
   exams.forEach(exam => {

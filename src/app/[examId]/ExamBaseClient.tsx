@@ -22,30 +22,26 @@ import {
   Flame,
   FileCheck,
   MapPin,
-  AlertTriangle
+  AlertTriangle,
+  BarChart
 } from 'lucide-react';
 
 const subpagesList = [
-  { id: 'notification', name: 'Notification 2026', icon: FileText },
-  { id: 'vacancy', name: 'Vacancy Details', icon: Briefcase },
-  { id: 'dates', name: 'Important Dates', icon: Calendar },
-  { id: 'eligibility', name: 'Eligibility Criteria', icon: UserCheck },
-  { id: 'medical', name: 'Medical Standards', icon: Eye },
-  { id: 'pattern', name: 'Exam Pattern', icon: Settings },
-  { id: 'syllabus', name: 'Official Syllabus', icon: BookOpen },
-  { id: 'pyqs', name: 'Previous Year Papers', icon: Clock },
-  { id: 'mocks', name: 'Mock Test Series', icon: Flame },
-  { id: 'strategy', name: 'Preparation Strategy', icon: Shield },
-  { id: 'job-profile', name: 'Job Profiles List', icon: Award },
-  { id: 'salary', name: 'Salary & Pay Scale', icon: DollarSign },
-  { id: 'preference', name: 'Post Preference Guide', icon: FileCheck },
-  { id: 'centres', name: 'Exam Centres List', icon: MapPin },
-  { id: 'admit-card', name: 'Admit Card Download', icon: Download },
-  { id: 'day-rules', name: 'Exam Day Rules', icon: AlertTriangle },
-  { id: 'normalization', name: 'Normalization Mark', icon: Zap },
-  { id: 'answer-key', name: 'Answer Key PDF', icon: Globe },
-  { id: 'cutoffs', name: 'Cut-off Trends', icon: TrendingUp },
-  { id: 'result', name: 'Result & Merit List', icon: Award }
+  { id: 'notification', name: 'Notification', icon: FileText },
+  { id: 'admit-card', name: 'Admit Card', icon: Download },
+  { id: 'vacancy', name: 'Vacancy', icon: Briefcase },
+  { id: 'syllabus', name: 'Syllabus', icon: BookOpen },
+  { id: 'important-dates', name: 'Important Dates', icon: Calendar },
+  { id: 'cut-off', name: 'Cut Off', icon: TrendingUp },
+  { id: 'exam-pattern', name: 'Exam Pattern', icon: Settings },
+  { id: 'eligibility', name: 'Eligibility', icon: UserCheck },
+  { id: 'selection-process', name: 'Selection Process', icon: Award },
+  { id: 'salary', name: 'Salary', icon: DollarSign },
+  { id: 'mock-tests', name: 'RRB NTPC Mock Tests', icon: Flame },
+  { id: 'english-sectional', name: 'English Language sectional tests', icon: FileCheck },
+  { id: 'quant-tests', name: 'Quantitative Aptitude tests', icon: BarChart },
+  { id: 'reasoning-tests', name: 'Reasoning Ability tests', icon: Zap },
+  { id: 'study-plan', name: 'Study Plan', icon: Shield }
 ];
 
 interface ExamBaseClientProps {
@@ -195,9 +191,9 @@ export default function ExamBaseClient({
                 </div>
               </div>
 
-              {/* PrepGrind Ad Directly Below the 20 Subpage Menu inside left sticky column */}
+              {/* Railgrind Ad Directly Below the 15 Subpage Menu inside left sticky column */}
               <a 
-                href="https://prepgrind.com" 
+                href="https://railgrind.in" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 style={{ 
@@ -241,7 +237,7 @@ export default function ExamBaseClient({
                     marginBottom: '0.75rem',
                     letterSpacing: '0.5px'
                   }}>
-                    PREPGRIND SPECIAL
+                    RAILGRIND SPECIAL
                   </span>
 
                   <h5 style={{ 
@@ -272,7 +268,7 @@ export default function ExamBaseClient({
                     fontWeight: '700', 
                     color: '#facc15' 
                   }}>
-                    <span>Access PrepGrind</span>
+                    <span>Access Railgrind</span>
                     <ArrowRight size={12} />
                   </div>
                 </div>
@@ -382,13 +378,13 @@ export default function ExamBaseClient({
                 border: '1px solid rgba(212, 83, 63, 0.15)'
               }}>
                 <h4 style={{ fontSize: '1.25rem', color: 'var(--primary)', marginBottom: '0.5rem', fontFamily: 'Outfit', fontWeight: '850' }}>
-                  Practice Mocks for {examDisplayName} on PrepGrind!
+                  Practice Mocks for {examDisplayName} on Railgrind!
                 </h4>
                 <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', maxWidth: '550px', margin: '0 auto 1.5rem auto', lineHeight: '1.5', fontWeight: '600' }}>
                   Boost your exam speeds. Attempt official solved shift previous papers and simulated full length mocks under real exam clocks.
                 </p>
                 <a 
-                  href="https://prepgrind.com" 
+                  href="https://railgrind.in" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn-primary"
