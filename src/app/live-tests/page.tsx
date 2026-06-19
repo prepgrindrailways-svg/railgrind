@@ -206,7 +206,7 @@ const list: LiveTest[] = [];
       {/* Explorer Section (Categories left, Cards right) */}
       <section className="section" style={{ backgroundColor: 'var(--surface)', padding: '5rem 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '2.5rem', position: 'relative' }}>
+          <div className="responsive-grid-12" style={{ gap: '2.5rem', position: 'relative'  }}>
             
             {/* Sidebar Column (Left, 3 units wide on large screens) - STABLE / STICKY */}
             <div style={{ 

@@ -87,7 +87,7 @@ export default function ExamSubpageClient({
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'center' }}>
             <div>
-              <h1 style={{ fontSize: '2.5rem', lineHeight: '1.2', marginBottom: '1.5rem', color: '#fff', fontFamily: 'Outfit', fontWeight: '800' }}>
+              <h1 className="exam-header-title" style={{ fontSize: '2.5rem', lineHeight: '1.2', marginBottom: '1.5rem', color: '#fff', fontFamily: 'Outfit', fontWeight: '800' }}>
                 {examDisplayName} Premium Informational Vault
               </h1>
               <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '0.5rem' }}>
@@ -96,21 +96,21 @@ export default function ExamSubpageClient({
             </div>
             
             {/* Authentic dynamic statistics cards */}
-            <div style={{ display: 'flex', gap: '2rem', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
-              <div style={{ textAlign: 'center', color: '#fff' }}>
-                <h3 style={{ fontSize: '2.5rem', color: '#facc15', margin: '0 0 0.25rem 0', fontFamily: 'Outfit', fontWeight: '800' }}>
+            <div className="exam-header-stats-container" style={{ display: 'flex', gap: '2rem', justifyContent: 'flex-end', flexWrap: 'wrap' }}>
+              <div className="exam-header-stats-item" style={{ textAlign: 'center', color: '#fff' }}>
+                <h3 className="exam-header-stat-value" style={{ fontSize: '2.5rem', color: '#facc15', margin: '0 0 0.25rem 0', fontFamily: 'Outfit', fontWeight: '800' }}>
                   {activeExamStats.vacancies.split(' ')[0]}
                 </h3>
                 <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.85rem', margin: '0', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600' }}>Total Posts</p>
               </div>
-              <div style={{ textAlign: 'center', color: '#fff', borderLeft: '1px solid rgba(255,255,255,0.2)', paddingLeft: '2rem' }}>
-                <h3 style={{ fontSize: '2.5rem', color: '#facc15', margin: '0 0 0.25rem 0', fontFamily: 'Outfit', fontWeight: '800' }}>
+              <div className="exam-header-stats-item" style={{ textAlign: 'center', color: '#fff', borderLeft: '1px solid rgba(255,255,255,0.2)', paddingLeft: '2rem' }}>
+                <h3 className="exam-header-stat-value" style={{ fontSize: '2.5rem', color: '#facc15', margin: '0 0 0.25rem 0', fontFamily: 'Outfit', fontWeight: '800' }}>
                   {activeExamStats.applicants}
                 </h3>
                 <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.85rem', margin: '0', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600' }}>Applicants</p>
               </div>
-              <div style={{ textAlign: 'center', color: '#fff', borderLeft: '1px solid rgba(255,255,255,0.2)', paddingLeft: '2rem' }}>
-                <h3 style={{ fontSize: '2rem', color: '#facc15', margin: '0.5rem 0 0.25rem 0', fontFamily: 'Outfit', fontWeight: '800' }}>
+              <div className="exam-header-stats-item" style={{ textAlign: 'center', color: '#fff', borderLeft: '1px solid rgba(255,255,255,0.2)', paddingLeft: '2rem' }}>
+                <h3 className="exam-header-stat-value" style={{ fontSize: '2rem', color: '#facc15', margin: '0.5rem 0 0.25rem 0', fontFamily: 'Outfit', fontWeight: '800' }}>
                   {activeExamStats.salaryRange.split(' ')[0]}
                 </h3>
                 <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.85rem', margin: '0', textTransform: 'uppercase', letterSpacing: '1px', fontWeight: '600' }}>Scale Start</p>
@@ -125,7 +125,7 @@ export default function ExamSubpageClient({
         <div className="container">
 
           {/* TWO-COLUMN GRID: Left (20 subpage items scrollable list & PrepGrind Ad) | Right (Detailed content sheets) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '2.5rem', alignItems: 'start' }}>
+          <div className="responsive-grid-12" style={{ gap: '2.5rem', alignItems: 'start'  }}>
             
             {/* LEFT COLUMN: Sticky scrollable directory menu featuring 20 pages + PrepGrind promotion ad */}
             <div style={{ 

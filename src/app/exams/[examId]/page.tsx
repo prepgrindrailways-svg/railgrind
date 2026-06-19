@@ -593,7 +593,7 @@ export default function ExamDetailPage({ params }: ParamsProps) {
         <div className="container">
 
           {/* TWO-COLUMN GRID: Left (20 subpage items scrollable list & PrepGrind Ad) | Right (Detailed content sheets) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '2.5rem', alignItems: 'start' }}>
+          <div className="responsive-grid-12" style={{ gap: '2.5rem', alignItems: 'start'  }}>
             
             {/* LEFT COLUMN: Sticky scrollable directory menu featuring 20 pages + PrepGrind promotion ad */}
             <div style={{ 

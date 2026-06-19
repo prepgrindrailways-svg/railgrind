@@ -805,7 +805,7 @@ export default function StudyMaterialPage() {
         <div className="container">
 
           {/* TWO-COLUMN GRID: Left Column (Syllabus Scrollable) & Middle/Right Columns (Other Info) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: '2.5rem', alignItems: 'start' }}>
+          <div className="responsive-grid-12" style={{ gap: '2.5rem', alignItems: 'start'  }}>
             
             {/* LEFT COLUMN: Sticky Sidebar featuring Checklist & PrepGrind Special Promotion Ad */}
             <div style={{ 
